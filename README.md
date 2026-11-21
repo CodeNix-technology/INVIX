@@ -106,8 +106,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/USER/invix.git
-cd invix
+git clone https://github.com/CodeNix-technology/INVIX.git
+cd INVIX
 
 # 2. Install dependencies
 npm install
