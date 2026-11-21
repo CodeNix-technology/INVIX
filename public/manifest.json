@@ -1,0 +1,13 @@
+{
+  "name": "Invix — Smart Invoices, Made Simple",
+  "short_name": "Invix",
+  "description": "Create professional invoices free: 15+ templates, GST support, PDF export, cloud sync.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f1ee",
+  "theme_color": "#101014",
+  "icons": [
+    { "src": "/invix.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/invix.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

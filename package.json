@@ -1,0 +1,48 @@
+{
+  "name": "invix",
+  "version": "1.0.0",
+  "description": "Invix \u2014 Smart Invoices, Made Simple. Open-source invoice generator with templates, GST support, PDF export, and local-first workspace.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "echo ok"
+  },
+  "keywords": [
+    "invoice",
+    "invoice-generator",
+    "gst",
+    "pdf",
+    "react",
+    "vite",
+    "open-source",
+    "supabase"
+  ],
+  "author": "Y. GOKUL RAAJ (Codenix Technology)",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
+    "qrcode": "^1.5.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.6",
+    "recharts": "^2.15.4",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.33",
+    "tailwindcss": "3.4",
+    "vite": "^5.4.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USER/invix.git"
+  }
+}
