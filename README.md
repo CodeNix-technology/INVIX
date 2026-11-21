@@ -1,229 +1,283 @@
 # Invix — Smart Invoices, Made Simple
 
-A production-quality, open-source invoice generator web app: **15 professional templates**, a full customization studio, GST support, UPI QR payments, PDF/PNG/print export, cloud sync via **Supabase**, and offline-first guest mode.
+<p align="center">
+  <img src="public/invix.png" alt="Invix logo" width="96" />
+</p>
 
-![Invix](public/icons/icon-512.png)
+<p align="center">
+  A production-quality, open-source invoice generator for freelancers, agencies, and small businesses.
+</p>
+
+<p align="center">
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
+  <img alt="React 18" src="https://img.shields.io/badge/React-18-61dafb?logo=react&logoColor=white" />
+  <img alt="Vite 5" src="https://img.shields.io/badge/Vite-5-646cff?logo=vite&logoColor=white" />
+  <img alt="Tailwind CSS 3" src="https://img.shields.io/badge/Tailwind_CSS-3-06b6d4?logo=tailwindcss&logoColor=white" />
+  <img alt="PWA Ready" src="https://img.shields.io/badge/PWA-ready-5a0fc8" />
+</p>
+
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-demo--screenshots">Demo</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#%EF%B8%8F-configuration">Configuration</a> •
+  <a href="#-deployment">Deployment</a> •
+  <a href="#-contributing">Contributing</a> •
+  <a href="#-credits">Credits</a> •
+  <a href="#-license">License</a>
+</p>
+
+---
+
+## Overview
+
+**Invix** is a modern, local-first invoice studio built with React + Vite. It helps you create polished invoices quickly with 15 professional templates, a full customization studio, GST/UPI support, PDF/PNG/print export, and optional Supabase cloud sync. It works offline by default — no account required.
 
 ## ✨ Features
 
-- **Invoice Builder** — three-pane layout (form · live preview · customize), drag-to-reorder line items, HSN/SAC, per-line discounts & taxes, extra charges, round-off, multi-currency with locale formatting, amount in words (Indian + international), notes/terms, bank details with auto-generated UPI QR, digital signature (draw/upload/type), company stamp, partial payments, PO numbers, payment terms.
-- **15 Templates** — Classic, Modern, Minimal, Corporate, Creative, Elegant, Bold, Gradient, Dark, Compact, Thermal receipt, Freelancer, Agency, GST Tax Invoice, Proforma/Quotation. Every template is data-driven (JSON customization + React component), so adding one is a single registry entry.
-- **Customization Studio** — colors + preset palettes, Google fonts, logo size/position, section visibility & ordering, column manager (toggle/rename/reorder HSN, Discount, Tax…), paper size (A4/A5/Letter) & orientation & margins, watermarks, custom labels, table styles, borders & radius. Save designs as **My Templates**, duplicate/rename/delete, export/import as JSON.
-- **Export & Sharing** — PDF (paginated), PNG, print, public share links, WhatsApp & email handoff, CSV/Excel/JSON export, recurring invoices, duplicate, quotation → invoice conversion.
-- **Cloud (Supabase)** — email + Google auth, full data sync with last-write-wins conflict handling, offline queue, storage-provider abstraction (`upload/download/delete/list`) with Supabase Storage default and local-device fallback (Firebase/S3/Cloudinary/Drive can plug into `registerStorageProvider`).
-- **Dashboard & Reports** — KPIs, monthly revenue chart, overdue reminders with mailto/WhatsApp templates, sales by client, monthly sales, tax (GST) summary, receivables aging, cashflow forecast, expenses, goals and an in-app notification center (see [Analytics & Insights](#-analytics--insights)).
-- **Extras** — dark/light mode, multi-business profiles, keyboard shortcuts + undo/redo + autosave, English/Tamil/Hindi UI, PWA (installable, offline), SEO landing page, guest mode without login.
+### Invoice Builder
+- **Three-pane studio**: form, live preview, and customization panel.
+- **Line items**: drag-to-reorder, HSN/SAC, per-line discount/tax, units, extra charges, round-off.
+- **Billing details**: multi-currency formatting, amount in words (Indian + international), notes/terms, PO number, payment terms.
+- **Payments**: bank details, auto-generated UPI QR, partial payments, digital signature (draw/upload/type), company stamp.
+- **Workflow**: autosave, undo/redo, duplicate, quotation → invoice conversion, recurring invoices.
 
-## 🚀 Quick start
+### Templates & Customization
+- **15 built-in templates**: Classic, Modern, Minimal, Corporate, Creative, Elegant, Bold, Gradient, Dark, Compact, Thermal receipt, Freelancer, Agency, GST Tax Invoice, Proforma/Quotation.
+- **Customization Studio**: colors/presets, Google fonts, logo size/position, section visibility/order, column manager, paper size/orientation/margins, watermarks, custom labels, table styles, borders/radius.
+- **My Templates**: save designs, duplicate/rename/delete, export/import as JSON.
+
+### Export & Sharing
+- **Export**: PDF (paginated), PNG, print.
+- **Share**: public share links, WhatsApp/email handoff.
+- **Data export**: CSV/Excel/JSON.
+
+### Dashboard, Analytics & Reports
+- **KPIs**: invoiced, collected, pending, overdue, invoice count, average invoice value, collection rate.
+- **Insights**: monthly revenue trend, sales by client, product/service performance, GST (CGST/SGST/IGST) summary, receivables aging, cashflow forecast.
+- **Operations**: expense tracker, goals, notification center, overdue reminders with mailto/WhatsApp templates.
+- **Filters**: period (month/quarter/year/custom), business filter, compare with previous period.
+- **Exports**: chart PNG and CSV/Excel-compatible data exports respecting active filters.
+
+### Platform & UX
+- **Local-first / offline**: IndexedDB guest mode, no login required.
+- **Cloud sync (optional)**: Supabase auth, Postgres sync, storage, RLS, offline queue.
+- **PWA**: installable, offline support.
+- **UI/UX**: dark/light mode, responsive layout, command palette, keyboard shortcuts.
+- **i18n**: English, Tamil, Hindi.
+- **Multi-business**: manage multiple business profiles.
+
+## 📸 Demo / Screenshots
+
+> Add screenshots or a demo GIF here before publishing.
+
+| Landing | Invoice Builder | Dashboard |
+|---|---|---|
+| _Add screenshot_ | _Add screenshot_ | _Add screenshot_ |
+
+<!-- Example:
+![Landing](docs/screenshots/landing.png)
+![Builder](docs/screenshots/builder.png)
+![Dashboard](docs/screenshots/dashboard.png)
+-->
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, React Router 6 |
+| Build Tool | Vite 5 |
+| Styling | Tailwind CSS 3 |
+| State | Zustand |
+| Charts | Recharts |
+| PDF/PNG | html2canvas, jsPDF |
+| QR | qrcode |
+| Backend (optional) | Supabase (Auth, Postgres, Storage, Edge Functions) |
+| Storage | IndexedDB (local-first), Supabase Storage / pluggable providers |
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- **Node.js** 18+ (recommended: latest LTS)
+- **npm** 9+ (or compatible package manager)
+
+### Install & Run
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/USER/invix.git
+cd invix
+
+# 2. Install dependencies
 npm install
-npm run dev          # http://localhost:5173
+
+# 3. Start development server
+npm run dev
 ```
 
-The app works immediately in **offline/guest mode** (data stored in IndexedDB) — no configuration needed.
+Open [http://localhost:5173](http://localhost:5173).
 
-## ☁️ Supabase setup (cloud sync, auth, storage)
+> Invix works immediately in **offline/guest mode** (IndexedDB). No Supabase configuration is required for local use.
 
-1. Create a project at [supabase.com](https://supabase.com).
-2. Open **SQL Editor** and run the contents of [`supabase/schema.sql`](supabase/schema.sql). This creates:
-   - tables: `profiles`, `businesses`, `clients`, `items`, `invoices`, `invoice_items`, `payments`, `templates`, `shared_invoices`
-   - **Row Level Security** policies (each user only touches their own rows; `shared_invoices` is publicly readable by design)
-   - the `invix-files` **storage bucket** with per-user folder policies
-   - a trigger that auto-creates a profile on signup
-3. Enable **Google OAuth**: Authentication → Providers → Google (add your redirect URL `http://localhost:5173/**` and your production domain).
-4. Copy `.env.example` → `.env.local` and fill in:
+## ⚙️ Configuration
+
+### Environment Variables
+
+Create `.env.local` from `.env.example`:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Required | Description |
+|---|---:|---|
+| `VITE_SUPABASE_URL` | Optional | Supabase project URL |
+| `VITE_SUPABASE_ANON_KEY` | Optional | Supabase anon/public key |
+
+Example:
 
 ```env
 VITE_SUPABASE_URL=https://YOUR-PROJECT.supabase.co
 VITE_SUPABASE_ANON_KEY=YOUR-ANON-KEY
 ```
 
-5. Restart the dev server. Sign in and hit **Sync now** — everything (invoices, clients, items, businesses, custom templates) pushes to Postgres; logos/stamps/shared PDFs go to Storage under `uid/…` paths.
+> If these are not set, the app stays in local/offline mode gracefully.
 
-> The app degrades gracefully: without env vars it stays in guest/offline mode.
+### Supabase Setup (Optional)
 
-## 📊 Analytics & Insights
+1. Create a project at [supabase.com](https://supabase.com).
+2. In **SQL Editor**, run [`supabase/schema.sql`](supabase/schema.sql). This creates:
+   - Tables: `profiles`, `businesses`, `clients`, `items`, `invoices`, `invoice_items`, `payments`, `templates`, `shared_invoices`, `expenses`, `goals`, `dashboard_layouts`
+   - Row Level Security (RLS) policies
+   - `invix-files` storage bucket with per-user policies
+   - Profile auto-create trigger on signup
+   - Analytics views/RPC/materialized views and refresh helpers
+3. Enable **Google OAuth** (optional): Authentication → Providers → Google. Add redirect URLs for local/dev/prod.
+4. Add env vars to `.env.local` and restart dev server.
+5. Sign in and use **Sync now** in the app.
 
-Two screens turn your invoice data into decisions:
+#### Analytics Refresh (Optional)
 
-- **`/dashboard`** — the day-to-day command centre: KPI cards, monthly revenue trend, receivables aging, cashflow forecast, expense tracker, goal progress and the notification center.
-- **`/analytics`** — deeper breakdowns: sales by month, sales by client, product/service performance, CGST/SGST/IGST tax summary, outstanding receivables and expected cash inflows.
+```sql
+select public.refresh_analytics();
+```
 
-### KPI definitions
+For scheduled refresh/reporting, see the detailed notes in [`supabase/schema.sql`](supabase/schema.sql) and [`supabase/functions/monthly-report/index.ts`](supabase/functions/monthly-report/index.ts).
 
-| KPI | Definition |
+## 📜 Available Scripts
+
+| Command | Description |
 |---|---|
-| **Invoiced** | Sum of `total` for invoices in the selected period (quotations excluded). |
-| **Collected** | Sum of payments received (`paid`) for those invoices. |
-| **Pending** | Sum of `balance` (`total − paid`). |
-| **Overdue** | Outstanding balance on invoices whose due date is before today. |
-| **Invoices** | Number of invoices in the period. |
-| **Avg. invoice value** | Invoiced ÷ invoice count. |
-| **Collection rate** | Collected ÷ invoiced × 100. |
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Create production build in `dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Placeholder lint script (configure as needed) |
 
-The same definitions power both screens, the RPC used by scheduled reports, and the local guest-mode calculations, so numbers never disagree between views.
+## 📁 Project Structure
 
-### Date filter and compare mode
-
-Both screens share a period filter (month / quarter / year / custom range) plus an optional **business** filter for multi-business workspaces. Enable **Compare** to overlay the previous equivalent period and show absolute and percentage deltas for every KPI and chart series.
-
-### Widget customization
-
-Cards and charts can be reordered, resized and hidden from **Customize dashboard**. The layout is saved per user in `dashboard_layouts` when signed in (synced with the rest of your workspace) and stored locally for guests.
-
-### Expenses and goals
-
-- **Expenses** — record category, description, amount, date, business and an optional receipt path in the `expenses` table. Expense totals appear alongside revenue on the dashboard.
-- **Goals** — set monthly (`2026-11`) or yearly (`2026`) revenue targets per business in `goals`. Progress rings and the notification center show how close you are to each target.
-
-### Chart exports
-
-Every chart and report table can be exported from its toolbar: charts as **PNG** images and the underlying rows as **CSV** (Excel-compatible). Exports respect the active date/business filters, so what you download matches what you see.
-
-### Notification center
-
-The bell in the app shell collects actionable alerts: overdue and due-soon invoices, partially paid invoices, low collection rate versus the previous period, and goal progress. Notifications are derived from the same views as the dashboard and support the existing mailto/WhatsApp reminder handoff.
-
-### Supabase analytics setup
-
-Analytics objects are created by the same idempotent SQL file as the core schema. Complete these steps once per project:
-
-1. **Run the schema.** In Supabase → **SQL Editor → New query**, paste the full contents of [`supabase/schema.sql`](supabase/schema.sql) and click **Run**. It creates the three new tables (`expenses`, `goals`, `dashboard_layouts`), the invoice `category` / `paid` / `balance` / `tax_total` columns, the reporting views (`v_invoice_facts`, `v_monthly_sales`, `v_client_stats`, `v_product_stats`, `v_tax_summary`, `v_ar_aging`, `v_cashflow`), the materialized views `mv_dashboard_kpis` and `mv_monthly_revenue` (with UNIQUE indexes for `REFRESH ... CONCURRENTLY`), and the functions `refresh_analytics()` and `get_dashboard_overview()`. Re-running the file is safe. If the new views or RPC do not appear immediately, use **Settings → API → Reload schema cache**.
-2. **Populate / refresh the materialized views** (optional but recommended):
-   ```sql
-   select public.refresh_analytics();
-   ```
-3. **Enable pg_cron (optional).** Database → **Extensions** → install `pg_cron`. The schema file then registers the job `invix-refresh-analytics` (`17 * * * *`) automatically. If `pg_cron` is not installed, the script only emits a NOTICE — nothing fails. Without pg_cron, call `select public.refresh_analytics();` from your own scheduler.
-4. **Deploy the monthly-report edge function:**
-   ```bash
-   supabase functions deploy monthly-report
-   ```
-   Set its secrets (Supabase → Project Settings → Edge Functions → Secrets, or via CLI):
-   ```bash
-   supabase secrets set \
-     SUPABASE_URL=https://YOUR-PROJECT.supabase.co \
-     SUPABASE_SERVICE_ROLE_KEY=YOUR-SERVICE-ROLE-KEY \
-     INVIX_CRON_SECRET=YOUR-LONG-RANDOM-SECRET \
-     RESEND_API_KEY=YOUR-RESEND-KEY \
-     REPORT_FROM_EMAIL="Invix <reports@invix.app>"
-   ```
-   `RESEND_API_KEY` and `REPORT_FROM_EMAIL` are optional: without `RESEND_API_KEY` the function logs the rendered email payload instead of sending it, which is useful for testing.
-
-   | Variable | Purpose |
-   |---|---|
-   | `SUPABASE_URL` | Project URL, used with the service-role key to call the RPC and read `profiles` / `v_client_stats`. |
-   | `SUPABASE_SERVICE_ROLE_KEY` | Server-side key; bypasses RLS so one scheduled run can report for every user. Never expose it in the browser. |
-   | `INVIX_CRON_SECRET` | Shared secret required in the `x-invix-cron-secret` header; requests without it get `401`. |
-   | `RESEND_API_KEY` | Resend API key for email delivery (optional). |
-   | `REPORT_FROM_EMAIL` | Sender address; defaults to `Invix <reports@invix.app>`. |
-
-5. **Schedule the report** — choose one of:
-   - **pg_cron + pg_net** (enable the `pg_net` extension, store secrets in Vault rather than hard-coding them):
-     ```sql
-     select cron.schedule(
-       'invix-monthly-report',
-       '0 6 1 * *',
-       $$
-       select net.http_post(
-         url := 'https://YOUR-PROJECT.supabase.co/functions/v1/monthly-report',
-         headers := jsonb_build_object(
-           'Content-Type', 'application/json',
-           'Authorization', 'Bearer YOUR-ANON-KEY',
-           'x-invix-cron-secret', 'YOUR-INVIX-CRON-SECRET'
-         ),
-         body := '{}'::jsonb
-       )
-       $$
-     );
-     ```
-   - **External cron** (e.g. cron, GitHub Actions, Vercel Cron):
-     ```bash
-     curl -X POST "https://YOUR-PROJECT.supabase.co/functions/v1/monthly-report" \
-       -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
-       -H "x-invix-cron-secret: $INVIX_CRON_SECRET"
-     ```
-   Both run on the 1st of each month and email each profile with last month's KPIs and top five clients.
-
-> Offline/guest mode needs none of this: `/dashboard` and `/analytics` compute the identical KPIs, aging buckets and tax breakdowns locally from IndexedDB. Cloud sync only adds per-user persistence, shared layouts and scheduled email reports.
-
-## 📁 Project structure
-
-```
-src/
-├── App.jsx                  # routes
-├── main.jsx                 # entry + PWA registration
-├── i18n/                    # English / Tamil / Hindi
-├── store/                   # Zustand: auth, data, builder (undo/redo), ui
-├── services/
-│   ├── supabase.js          # client from env
-│   ├── storage/             # StorageProvider abstraction + Supabase/local providers
-│   ├── pdf.js               # html2canvas + jsPDF (PDF/PNG/print/thumbnails)
-│   ├── sharing.js           # public share links
-│   ├── recurring.js         # weekly/monthly/yearly generation
-│   ├── autoSync.js          # offline queue + auto-sync
-│   └── db.js                # IndexedDB wrapper (offline-first)
-├── utils/                   # currency, words, calc, dates, numbering, csv, QR, validation
-├── components/
-│   ├── ui/                  # design system (buttons, modals, toasts, color picker…)
-│   ├── builder/             # FormPanel, LineItemsEditor, CustomizePanel, PreviewPane
-│   └── layout/              # app shell with nav + sync status
-├── templates/
-│   ├── schema.js            # customization JSON schema + presets
-│   ├── shared.jsx           # paper frame, watermark, tables, sections
-│   ├── layouts.jsx          # 5 layout engines (band/sidebar/minimal/thermal/GST)
-│   └── registry.jsx         # 15 templates + custom template resolution
-└── pages/                   # Landing, Auth, Dashboard, Analytics, Invoices, Builder,
-                             # Gallery, Preview, Clients, Items, Reports, Settings, Share
-supabase/
-├── schema.sql               # tables + RLS + buckets + analytics views/RPC (+ seed block)
-└── functions/monthly-report/index.ts  # scheduled email digest (Resend)
+```text
+.
+├── public/                  # Static assets, manifest, icons, service worker
+├── src/
+│   ├── components/          # UI, layout, builder, analytics components
+│   ├── hooks/               # Custom hooks
+│   ├── i18n/                # Localization (en/ta/hi)
+│   ├── pages/               # Route pages (Landing, Dashboard, Builder, etc.)
+│   ├── services/            # PDF, Supabase, storage, sync, sharing, DB
+│   ├── store/               # Zustand stores (auth, data, builder, ui)
+│   ├── styles/              # Global styles
+│   ├── templates/           # Invoice template registry/layouts/schema
+│   └── utils/               # Calculations, dates, currency, validation, words
+├── supabase/
+│   ├── schema.sql           # Database schema, RLS, analytics SQL
+│   └── functions/           # Edge functions (monthly report)
+├── .env.example
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
 ```
 
-## 🧾 Numbering patterns
-
-`INV-{NNNN}` · `ACME/{YY}/{MM}/{NNNN}` — placeholders `{YYYY} {YY} {MM} {DD} {N…}`; monthly reset happens automatically when the pattern contains `{MM}`.
-
-## 🏗 Build & deploy
-
-```bash
-npm run build     # outputs dist/
-npm run preview   # local preview of the build
-```
-
-**Vercel** — import the repo, framework = Vite, add the two `VITE_SUPABASE_*` env vars.
-**Netlify** — build command `npm run build`, publish directory `dist`, add the same env vars.
-
-## ⌨️ Keyboard shortcuts
+## ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
 |---|---|
+| `Ctrl/⌘ + K` | Open command palette |
 | `Ctrl/⌘ + Z` | Undo (builder) |
-| `Ctrl/⌘ + Y` / `Ctrl/⌘ + Shift + Z` | Redo |
-| `Ctrl/⌘ + S` | Save draft |
+| `Ctrl/⌘ + Y` / `Ctrl/⌘ + Shift + Z` | Redo (builder) |
+| `Ctrl/⌘ + S` | Save draft (builder) |
 
-## 🔌 Plugging in another storage provider
+## ☁️ Deployment
+
+### Vercel
+
+1. Import the repository into Vercel.
+2. Framework preset: **Vite**.
+3. Build command: `npm run build`
+4. Output directory: `dist`
+5. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` if using Supabase.
+
+### Netlify
+
+1. Import the repository into Netlify.
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` if using Supabase.
+
+## 🔌 Storage Provider Extension
+
+Invix includes a storage-provider abstraction. You can register custom providers (S3, Cloudinary, Firebase, etc.):
 
 ```js
 import { registerStorageProvider } from '@/services/storage'
 
 registerStorageProvider('s3', (settings) => ({
   name: 's3',
-  async upload(path, blob) { /* … */ return { path } },
-  async download(path) { /* … */ return blob },
-  async getPublicUrl(path) { /* … */ return { data: { publicUrl: url } } },
-  async remove(path) {},
+  async upload(path, blob) { /* ... */ return { path } },
+  async download(path) { /* ... */ return blob },
+  async getPublicUrl(path) { /* ... */ return { data: { publicUrl: url } } },
+  async remove(path) { /* ... */ },
   async list(prefix) { return [] },
 }))
 ```
 
-Then pick it in **Settings → Cloud & storage**.
+Then select the provider in **Settings → Cloud & storage**.
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+1. **Fork** the repository.
+2. **Create a branch**: `git checkout -b feat/your-feature-name`
+3. **Make changes** and test locally (`npm run dev`, `npm run build`).
+4. **Commit** with a clear message: `git commit -m "feat: add ..."`
+5. **Push** and open a **Pull Request**.
+
+### Contribution Guidelines
+
+- Keep changes focused and well-scoped.
+- Follow the existing code style and project structure.
+- Avoid breaking offline/local-first behavior.
+- Test light/dark mode and responsive layouts for UI changes.
+- Update documentation when adding/changing features or config.
+
+## 🐛 Bug Reports & Feature Requests
+
+- Use **GitHub Issues** for bugs and feature requests.
+- For bugs, include: steps to reproduce, expected behavior, actual behavior, screenshots/logs, and environment details (browser, OS, Node version).
+- For feature requests, describe the use case and expected outcome.
+
+## 🔒 Security
+
+If you discover a security vulnerability, please **do not** open a public issue immediately. Instead, report it privately to the maintainers/owners through a secure channel, then disclose responsibly after a fix is available.
 
 ## Credits
 
-- Made by [https://codenix-technology.xyz/](https://codenix-technology.xyz/)
-- Elements by Y. GOKUL RAAJ
+- **Made by:** [https://codenix-technology.xyz/](https://codenix-technology.xyz/)
+- **Elements by:** Y. GOKUL RAAJ
 
 ## License
 
-MIT (open source)
+This project is licensed under the [MIT License](./LICENSE).
+
+---
